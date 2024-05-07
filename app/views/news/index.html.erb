@@ -1,0 +1,7 @@
+<h1>News Stories</h1>
+
+<% @news['articles'].each do |article| %>
+  <h2><%= article['title'] %></h2>
+  <p><%= article['description'] %></p>
+  <p><a href="<%= article['url'] %>">Read more</a></p>
+<% end %>
