@@ -6,6 +6,6 @@ class NewsController < ApplicationController
     topic = params[:topic]
     uri = URI("https://newsapi.org/v2/everything?q=#{topic}&apiKey=#{ENV['NEWS_API_KEY']}")
     response = Net::HTTP.get(uri)
-    render json: JSON.parse(response)
+    @news = JSON.parse(response)
   end
 end
