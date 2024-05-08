@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get '/news/fetch', to: 'news#fetch'
 
   get 'api_docs', to: 'home#api_docs'
-
+  patch 'update_news/:id', to: 'news#update', as: 'update_news'
   
 
-  resources :news, only: [:create, :update, :destroy]
+  resources :news
 end
