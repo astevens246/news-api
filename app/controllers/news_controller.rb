@@ -18,17 +18,28 @@ class NewsController < ApplicationController
     end
 
     def create
-        @news = News.new(news_params)
-    
+        @news = News.new(create_news_params)
+      
         if @news.save
-            redirect_to news_index_path
+          redirect_to news_index_path
         else
-            render json: @news.errors, status: :unprocessable_entity        
+          render json: @news.errors, status: :unprocessable_entity        
         end
-    end
+      end
 
-  def update
-  end
+    def edit
+        @news_story = News.find(params[:id])
+      end
+
+    def update
+    @news_story = News.find(params[:id])
+
+    if @news_story.update(news_params)
+        redirect_to news_index_path, notice: 'News was successfully updated.'
+    else
+        render :edit
+    end
+    end
 
   def destroy
     @news_story = News.find(params[:id])
@@ -40,7 +51,11 @@ class NewsController < ApplicationController
   private
 
   def news_params
-      params.permit(:title, :author, :content, :url)
+    params.require(:news).permit(:title, :author, :content, :url)
+  end
+  
+  def create_news_params
+    params.permit(:title, :author, :content, :url)
   end
 
 end
