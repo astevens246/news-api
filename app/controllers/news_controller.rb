@@ -3,7 +3,7 @@ require 'uri'
 
 class NewsController < ApplicationController
     def fetch
-        topic = params[:topic] || 'default_topic'
+        topic = params[:topic] || 'technology'
         uri = URI("https://newsapi.org/v2/everything?q=#{topic}&apiKey=#{ENV['NEWS_API_KEY']}")
         response = Net::HTTP.get(uri)
         @news_stories = JSON.parse(response)['articles']
