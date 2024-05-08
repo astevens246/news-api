@@ -2,4 +2,5 @@
   <h2><%= story.title %></h2>
   <p><%= story.content %></p>
   <p><a href="<%= story.url %>">Read more</a></p>
+  <%= button_to 'Delete', { action: "destroy", id: story.id }, method: :delete %>
 <% end %>

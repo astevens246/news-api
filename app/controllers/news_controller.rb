@@ -15,7 +15,6 @@ class NewsController < ApplicationController
     
     def index
         @saved_stories = News.all
-        puts "@saved_stories: #{@saved_stories}"
     end
 
     def create
@@ -32,6 +31,10 @@ class NewsController < ApplicationController
   end
 
   def destroy
+    @news_story = News.find(params[:id])
+    @news_story.destroy
+
+    redirect_to news_index_path
   end
 
   private
