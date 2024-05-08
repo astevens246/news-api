@@ -1,0 +1,24 @@
+<h1>API Documentation</h1>
+<p>Our API allows you to fetch and save news stories. Here's how you can use it:</p>
+
+<h2>Fetching News Stories</h2>
+<p>To fetch news stories, make a GET request to the `/news/fetch` endpoint. This will return a list of news stories in JSON format.</p>
+
+<h2>Saving a News Story</h2>
+<p>To save a news story, make a POST request to the `/news` endpoint. The request body should include the following parameters:</p>
+<ul>
+  <li><code>title</code>: The title of the news story</li>
+  <li><code>author</code>: The author of the news story</li>
+  <li><code>content</code>: The content of the news story</li>
+  <li><code>url</code>: The URL of the news story</li>
+</ul>
+<p>The news story will be saved to the database and the details of the saved story will be returned in JSON format.</p>
+
+<h2>Updating a News Story</h2>
+<p>To update a news story, make a PUT or PATCH request to the `/news/:id` endpoint, where `:id` is the ID of the news story. The request body should include the parameters you want to update.</p>
+
+<h2>Deleting a News Story</h2>
+<p>To delete a news story, make a DELETE request to the `/news/:id` endpoint, where `:id` is the ID of the news story. The news story will be deleted from the database.</p>
+
+<h2>Authentication</h2>
+<p>Some endpoints require authentication. To authenticate, include your API key in the `Authorization` header of your request. Unauthenticated requests will receive a `401 Unauthorized` response.</p>
