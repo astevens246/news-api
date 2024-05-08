@@ -1,0 +1,13 @@
+<% @news_stories.each do |story| %>
+    <h2><%= story['title'] %></h2>
+    <p><%= story['content'] %></p>
+    <p><a href="<%= story['url'] %>">Read more</a></p>
+
+    <%= form_with(url: news_index_path, method: :post) do %>
+        <%= hidden_field_tag :title, story['title'] %>
+        <%= hidden_field_tag :author, story['author'] %>
+        <%= hidden_field_tag :content, story['content'] %>
+        <%= hidden_field_tag :url, story['url'] %>
+        <%= submit_tag 'Save this story' %>
+    <% end %>
+<% end %>
