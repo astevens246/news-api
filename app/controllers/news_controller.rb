@@ -1,5 +1,6 @@
 require 'net/http'
 require 'uri'
+# how to search: http://localhost:3000/news/fetch?topic=basketball
 
 class NewsController < ApplicationController
     def fetch
