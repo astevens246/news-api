@@ -1,7 +1,10 @@
 require 'net/http'
 require 'uri'
+# how to search: http://localhost:3000/news/fetch?topic=basketball
 
 class NewsController < ApplicationController
+    before_action :authenticate_user!, only: :create
+
     def fetch
         topic = params[:topic] || 'technology'
         uri = URI("https://newsapi.org/v2/everything?q=#{topic}&apiKey=#{ENV['NEWS_API_KEY']}")
@@ -21,8 +24,7 @@ class NewsController < ApplicationController
         if @news.save
             redirect_to news_index_path
         else
-            # Handle the error case
-        
+            render json: @news.errors, status: :unprocessable_entity        
         end
     end
 
