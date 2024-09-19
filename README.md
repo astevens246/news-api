@@ -25,9 +25,10 @@ This project uses SQLite as a database.
 ## Authentication
 
 This project uses the Devise gem for user authentication. Only authenticated users can create news stories.
+
 ## Ruby version
 
-This project uses Ruby version 2.7.1. You can check your Ruby version with the command `ruby -v`.
+This project uses Ruby version 3.2.0. You can check your Ruby version with the command `ruby -v`.
 
 ## System dependencies
 
@@ -52,3 +53,42 @@ You can run the test suite with the command `bin/rails test`.
 ## Deployment instructions
 
 To deploy the project, you can use Heroku. First, create a new Heroku app with the command `heroku create`. Then, push the code to Heroku with the command `git push heroku master`. Finally, migrate the database with the command `heroku run rake db:migrate`.
+
+## Docker Setup
+
+### Prerequisites
+- **Docker**: Ensure Docker is installed on your machine. You can download it from [here](https://www.docker.com/products/docker-desktop).
+- **Docker Compose**: Docker Compose is included with Docker Desktop, so no additional installation is needed.
+
+### Setup
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/astevens246/news-api
+   cd your-repo
+   ```
+
+2. **Build and Run the Docker Containers**:
+   ```sh
+   docker-compose up --build
+   ```
+
+3. **Create and Migrate the Database**:
+   Open a new terminal window and run:
+   ```sh
+   docker-compose run web rake db:create
+   docker-compose run web rake db:migrate
+   ```
+
+4. **Access the Application**:
+   The application will be available at `http://localhost:3000`.
+
+### Stopping the Application
+To stop the application, press `Ctrl+C` in the terminal where `docker-compose up` is running. To remove the containers, run:
+```sh
+docker-compose down
+```
+
+### Troubleshooting
+- If you encounter any issues, ensure Docker is running and you have the latest version installed.
+- Check the logs for any error messages using `docker-compose logs`.
