@@ -1,5 +1,7 @@
 {
   "name": "news_api",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mongodb": "^6.9.0"
+  }
 }
