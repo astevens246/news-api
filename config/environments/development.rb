@@ -59,6 +59,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Allow requests from the specified host
+  config.hosts << "news-api.dev.golfiseasy.me"
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
