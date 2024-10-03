@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: your_postgres_username
-  password: your_postgres_password
+  username: allen
+  password: 123456
 
 development:
   <<: *default
@@ -26,5 +26,5 @@ test:
 production:
   <<: *default
   database: newsapi_production
-  username: newsapi
-  password: <%= ENV['NEWSAPI_DATABASE_PASSWORD'] %>
+  username: allen
+  password: 123456
