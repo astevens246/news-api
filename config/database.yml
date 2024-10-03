@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: allen
-  password: 123456
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -26,5 +26,4 @@ test:
 production:
   <<: *default
   database: newsapi_production
-  username: allen
-  password: 123456
+  host: db  # Use the service name defined in docker-compose.yml

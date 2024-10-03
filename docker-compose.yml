@@ -1,3 +1,5 @@
+version: '3.8'  # Specify the version of Docker Compose
+
 services:
   web:
     build: .
@@ -6,3 +8,14 @@ services:
       - .:/myapp
     ports:
       - "3000:3000"
+    depends_on:
+      - db  # Ensure the web service starts after the db service
+
+  db:
+    image: postgres:latest  # Use the latest PostgreSQL image
+    environment:
+      POSTGRES_USER: user  # Use environment variable for username
+      POSTGRES_PASSWORD: pass  # Use environment variable for password
+      POSTGRES_DB: newsapi_production  # Name of the database to create
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port
