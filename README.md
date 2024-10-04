@@ -1,5 +1,8 @@
 # README
 
+![Build Status](https://img.shields.io/badge/build-status%20unknown-lightgrey)
+![Uptime](https://img.shields.io/badge/uptime-99%25-brightgreen)
+
 # News API
 
 This is a News API that allows users to fetch, create, update, and delete news stories.
@@ -12,55 +15,78 @@ This is a News API that allows users to fetch, create, update, and delete news s
 
 ## Endpoints
 
-- GET `/news`: Fetch all saved news stories.
-- GET `/news/fetch`: Fetch news stories from an external API.
-- POST `/news`: Create a new news story (authenticated users only).
-- PUT `/update_news/:id`: Update a news story.
-- DELETE `/news/:id`: Delete a news story.
+- **GET `/news`**: Fetch all saved news stories.
+- **GET `/news/fetch`**: Fetch news stories from an external API.
+- **POST `/news`**: Create a new news story (authenticated users only).
+- **PUT `/update_news/:id`**: Update a news story.
+- **DELETE `/news/:id`**: Delete a news story.
 
-## Database
+### Example Requests
 
-This project uses SQLite as a database.
+- **Fetch all news stories**:
+  ```sh
+  curl -X GET http://localhost:3000/news
+  ```
+
+- **Create a new news story**:
+  ```sh
+  curl -X POST http://localhost:3000/news -d '{"title": "New Story", "content": "Story content here."}' -H "Content-Type: application/json"
+  ```
+
+## System Requirements
+
+### Ruby Installation
+
+This project requires Ruby version 3.2.0. You can check if Ruby is installed on your machine with the command:
+
+```sh
+ruby -v
+```
+
+If Ruby is not installed, you can install it using a version manager like [rbenv](https://github.com/rbenv/rbenv) or [RVM](https://rvm.io/).
+
+### Database
+
+This project uses PostgreSQL as a database. Ensure PostgreSQL is installed on your machine. You can download it from [here](https://www.postgresql.org/download/).
 
 ## Authentication
 
 This project uses the Devise gem for user authentication. Only authenticated users can create news stories.
 
-## Ruby version
+## Installation
 
-This project uses Ruby version 3.2.0. You can check your Ruby version with the command `ruby -v`.
+To configure the project, you need to set up the database and install the required gems. You can do this with the following commands:
 
-## System dependencies
+```sh
+# Install dependencies
+bundle install
 
-This project uses SQLite as a database and Rails as the web framework. You can install SQLite with the command `sudo apt-get install sqlite3 libsqlite3-dev` and Rails with the command `gem install rails`.
+# Set up the database
+bin/rails db:setup
+```
 
-## Configuration
+## Database Creation and Initialization
 
-To configure the project, you need to set up the database and install the required gems. You can do this with the commands `bin/rails db:setup` and `bundle install`.
+The database is created and initialized with the following commands:
 
-## Database creation
+```sh
+bin/rails db:create
+bin/rails db:migrate
+```
 
-The database is created with the command `bin/rails db:create`.
+## How to Run the Test Suite
 
-## Database initialization
+You can run the test suite with the command:
 
-The database is initialized with the command `bin/rails db:migrate`.
+```sh
+bin/rails test
+```
 
-## How to run the test suite
+## Deployment Instructions
 
-You can run the test suite with the command `bin/rails test`.
+To deploy the project using Docker, follow these steps:
 
-## Deployment instructions
-
-To deploy the project, you can use Heroku. First, create a new Heroku app with the command `heroku create`. Then, push the code to Heroku with the command `git push heroku master`. Finally, migrate the database with the command `heroku run rake db:migrate`.
-
-## Docker Setup
-
-### Prerequisites
-- **Docker**: Ensure Docker is installed on your machine. You can download it from [here](https://www.docker.com/products/docker-desktop).
-- **Docker Compose**: Docker Compose is included with Docker Desktop, so no additional installation is needed.
-
-### Setup
+### Docker Setup
 
 1. **Clone the Repository**:
    ```sh
@@ -92,3 +118,44 @@ docker-compose down
 ### Troubleshooting
 - If you encounter any issues, ensure Docker is running and you have the latest version installed.
 - Check the logs for any error messages using `docker-compose logs`.
+
+## Uptime Monitoring
+
+This application is monitored for uptime using [UptimeRobot](https://uptimerobot.com/). 
+
+### Current Status
+- **Monitoring URL**: [https://news-api.dev.golfiseasy.me](https://news-api.dev.golfiseasy.me)
+- **Status Page**: [View Status Page](https://stats.uptimerobot.com/pv1dCqqyFm)
+- **Current Status**: Up
+
+## Deployment Instructions to CapRover
+
+1. **Install CapRover CLI**:
+   Make sure you have the CapRover CLI installed. You can install it using npm:
+   ```sh
+   npm install -g caprover
+   ```
+
+2. **Login to CapRover**:
+   Use the following command to log in to your CapRover server:
+   ```sh
+   caprover login
+   ```
+
+3. **Create a New App**:
+   Create a new app on your CapRover server:
+   ```sh
+   caprover apps create <your-app-name>
+   ```
+
+4. **Deploy Your App**:
+   Deploy your app using the following command:
+   ```sh
+   caprover deploy
+   ```
+
+5. **Set Environment Variables**:
+   Set any necessary environment variables (like `DATABASE_USERNAME` and `DATABASE_PASSWORD`) in the CapRover dashboard.
+
+6. **Access Your Application**:
+   Your application will be available at the domain you set up in CapRover.
