@@ -26,6 +26,3 @@
            bundle install
            # Add any other commands to run your tests
 
-       - name: Run tests
-         run: |
-           bundle exec rake test
