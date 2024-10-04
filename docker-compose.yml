@@ -14,8 +14,8 @@ services:
   db:
     image: postgres:latest  # Use the latest PostgreSQL image
     environment:
-      POSTGRES_USER: user  # Use environment variable for username
-      POSTGRES_PASSWORD: pass  # Use environment variable for password
+      POSTGRES_USER: allen  # Use environment variable for username
+      POSTGRES_PASSWORD: 123456  # Use environment variable for password
       POSTGRES_DB: newsapi_production  # Name of the database to create
     ports:
       - "5432:5432"  # Expose PostgreSQL port
