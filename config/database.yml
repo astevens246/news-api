@@ -8,14 +8,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: allen
+  password: 123456
+  host: db  # This should match the service name in docker-compose.yml
+  port: 5432  # Default PostgreSQL port
 
 development:
   <<: *default
   database: newsapi_development
   username: allen
   password: 123456
+  host: db  # This should match the service name in docker-compose.yml
+  port: 5432  # Default PostgreSQL port
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -26,4 +31,7 @@ test:
 production:
   <<: *default
   database: newsapi_production
+  username: allen
+  password: 123456
   host: db  # Use the service name defined in docker-compose.yml
+  port: 5432  # Default PostgreSQL port
