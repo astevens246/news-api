@@ -159,3 +159,9 @@ This application is monitored for uptime using [UptimeRobot](https://uptimerobot
 
 6. **Access Your Application**:
    Your application will be available at the domain you set up in CapRover.
+
+## Blog Post
+
+I recently wrote a blog post detailing my experience deploying a News API using  Docker, CapRover, UptimeRobot, and DigitalOcean. In this post, I share the challenges I faced, the solutions I implemented, and the key learnings from the process.
+
+You can read the full blog post here: [Deploying a News API: My Journey with Docker, CapRover, and Uptime Monitoring](https://astevens246.github.io/ACS-3220-Blog-Post/)
