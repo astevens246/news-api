@@ -1,7 +1,7 @@
 # README
 
-![Build Status](https://img.shields.io/badge/build-status%20unknown-lightgrey)
-![Uptime](https://img.shields.io/badge/uptime-99%25-brightgreen)
+![Build Status](https://github.com/astevens246/news-api/actions/workflows/ci.yml/badge.svg)
+![Uptime](https://img.shields.io/badge/uptime-99.5%25-brightgreen)
 
 # News API
 
