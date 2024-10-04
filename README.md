@@ -91,7 +91,7 @@ To deploy the project using Docker, follow these steps:
 1. **Clone the Repository**:
    ```sh
    git clone https://github.com/astevens246/news-api
-   cd your-repo
+   cd news-api
    ```
 
 2. **Build and Run the Docker Containers**:
@@ -145,7 +145,7 @@ This application is monitored for uptime using [UptimeRobot](https://uptimerobot
 3. **Create a New App**:
    Create a new app on your CapRover server:
    ```sh
-   caprover apps create <your-app-name>
+   caprover apps create news-api
    ```
 
 4. **Deploy Your App**:
