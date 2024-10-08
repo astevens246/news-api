@@ -31,7 +31,7 @@ test:
 production:
   <<: *default
   database: newsapi_production
-  username: postgres
-  password: news-api
-  host: srv-captain--news-api-db  # Use the service name defined in docker-compose.yml
+  username: allen
+  password: 123456
+  host: db  # Use the service name defined in docker-compose.yml
   port: 5432  # Default PostgreSQL port
