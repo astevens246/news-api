@@ -29,10 +29,9 @@ test:
   database: newsapi_test
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: postgres  # This is the default database name; you can change it if needed
-  username: postgres  # This is the default username; change if you set a different one
-  password: news-api  # Use the password you set during database creation
-  host: srv-captain--news-api-db  # This is the internal service name for your database
-  port: 5432
+  <<: *default
+  database: newsapi_production
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: srv-captain--news-api-db  # Use the service name defined in docker-compose.yml
+  port: 5432  # Default PostgreSQL port
