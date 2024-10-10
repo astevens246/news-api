@@ -11,7 +11,8 @@ RUN apt-get update -qq && apt-get install -y \
   libreadline-dev \
   zlib1g-dev \
   build-essential \
-  curl
+  curl \
+  iputils-ping  # Correctly indented
 
 # Install rbenv
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
